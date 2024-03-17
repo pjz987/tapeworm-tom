@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0uompw56l6af"]
+
+[ext_resource type="Texture2D" uid="uid://cnwog1gjsvi7e" path="res://ribcage.png" id="1_g7tpe"]
+[ext_resource type="Script" path="res://title_screen.gd" id="1_nxtg4"]
+[ext_resource type="Texture2D" uid="uid://ddheg80gl6t6j" path="res://titlecard.png" id="1_rvbbi"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nxtg4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_g7tpe")
+centered = false
+
+[node name="TitleCard" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rvbbi")

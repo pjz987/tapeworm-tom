@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://omc5c12nn057"]
+
+[ext_resource type="AudioStream" uid="uid://bp48agi6gdfm1" path="res://parasite_rd.wav" id="1_nq6ad"]
+[ext_resource type="Script" path="res://music_player.gd" id="2_u1cg0"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_nq6ad")
+script = ExtResource("2_u1cg0")

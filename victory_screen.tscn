@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdbxwxj7niaa5"]
+
+[ext_resource type="PackedScene" uid="uid://gsdowx7fhkqc" path="res://level.tscn" id="1_mtdvw"]
+[ext_resource type="Texture2D" uid="uid://bsbf3tgtxsq12" path="res://exit.png" id="2_pk7al"]
+[ext_resource type="Texture2D" uid="uid://bdit1yduuvaah" path="res://play-again.png" id="3_qid8n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp2ka"]
+size = Vector2(36, 26.6667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1d73"]
+size = Vector2(36, 26.6667)
+
+[node name="VictoryScreen" instance=ExtResource("1_mtdvw")]
+
+[node name="ColonTilemap" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(458762, 65536, 0, 458763, 65536, 0, 458764, 65536, 0, 458765, 65536, 0, 458768, 65536, 0, 458769, 65536, 0, 458770, 65536, 0, 196630, 65536, 1, 131086, 0, 1, 131085, 131072, 0, 131084, 0, 1, 131083, 65536, 1, 131082, 65536, 0, 131081, 0, 1, 786437, 65536, 0, 131077, 65536, 1, 131076, 65536, 0, 131078, 0, 1, 262164, 0, 0, 262165, 65536, 0, 262166, 65536, 2, 65539, 131072, 0, 65538, 65536, 0, 65537, 0, 1, 131073, 196608, 1, 196609, 196608, 1, 262145, 196608, 1, 327681, 0, 2, 327682, 65536, 0, 327683, 131072, 0, 262148, 65536, 0, 262149, 65536, 2, 262150, 196608, 2, 196614, 196608, 1, 131079, 65536, 0, 131080, 65536, 1, 196617, 196608, 1, 262153, 0, 2, 262155, 196608, 1, 262154, 131072, 0, 393227, 65536, 2, 393226, 65536, 0, 262147, 0, 2, 196611, 196608, 1, 131075, 0, 1, 196613, 196608, 1, 196616, 196608, 1, 262152, 196608, 2, 196619, 196608, 1, 327691, 196608, 1, 393225, 0, 0, 262156, 196608, 2, 196620, 196608, 1, 262158, 196608, 2, 196622, 196608, 1, 131087, 65536, 0, 131088, 65536, 1, 196624, 196608, 1, 262160, 196608, 2, 196623, 131072, 1, 131089, 0, 0, 131090, 65536, 0, 131091, 131072, 0, 196626, 196608, 0, 262162, 196608, 2, 131094, 131072, 0, 131093, 65536, 0, 131092, 0, 1, 196628, 0, 2, 196629, 65536, 0, 458753, 0, 1, 524289, 196608, 1, 589825, 196608, 1, 655361, 196608, 1, 720897, 196608, 1, 786433, 0, 2, 786434, 65536, 0, 786435, 65536, 0, 786436, 65536, 0, 786438, 65536, 0, 786439, 65536, 0, 786440, 65536, 0, 786441, 65536, 0, 786442, 65536, 0, 786443, 65536, 0, 786444, 65536, 0, 786445, 65536, 0, 786446, 65536, 0, 786447, 65536, 0, 786448, 65536, 0, 786449, 65536, 0, 786450, 65536, 0, 786451, 65536, 0, 786452, 65536, 0, 786453, 65536, 0, 786454, 65536, 2, 720918, 196608, 1, 655382, 196608, 1, 589846, 196608, 1, 524310, 196608, 1, 458774, 65536, 1, 458773, 65536, 0, 458772, 65536, 0, 458771, 65536, 0, 458767, 65536, 0, 458766, 65536, 0, 458760, 65536, 0, 458759, 65536, 0, 458758, 65536, 0, 458757, 65536, 0, 458756, 65536, 0, 458755, 65536, 0, 458754, 65536, 0, 458761, 65536, 0)
+
+[node name="Exit" type="Sprite2D" parent="." index="2"]
+position = Vector2(304, 160)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_pk7al")
+
+[node name="ExitArea2D" type="Area2D" parent="Exit" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/ExitArea2D" index="0"]
+shape = SubResource("RectangleShape2D_tp2ka")
+
+[node name="Play-again" type="Sprite2D" parent="." index="3"]
+position = Vector2(80, 161)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_qid8n")
+
+[node name="PlayAgainArea2D" type="Area2D" parent="Play-again" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Play-again/PlayAgainArea2D" index="0"]
+shape = SubResource("RectangleShape2D_m1d73")
+
+[node name="TapewormTom" parent="." index="4"]
+position = Vector2(192, 164)
+
+[node name="WhiteBloodCell" parent="." index="6"]
+position = Vector2(72, 56)
+
+[connection signal="body_entered" from="Exit/ExitArea2D" to="." method="_on_exit_area_2d_body_entered"]
+[connection signal="body_entered" from="Play-again/PlayAgainArea2D" to="." method="_on_play_again_area_2d_body_entered"]
