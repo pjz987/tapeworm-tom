@@ -23,10 +23,6 @@ texture = ExtResource("2_d5t3w")
 position = Vector2(9, 208)
 
 [node name="Sprite2D" parent="TapewormTom" index="0"]
-position = Vector2(2.08165e-12, -16)
-scale = Vector2(1, 1)
-
-[node name="LevelEndZone" parent="." index="5"]
 scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" parent="LevelEndZone" index="0"]
@@ -49,7 +45,5 @@ position = Vector2(209, 16)
 
 [node name="WhiteBloodCell3" parent="." index="12"]
 position = Vector2(320, 50)
-
-[connection signal="body_entered" from="LevelEndZone" to="." method="_on_level_end_zone_body_entered"]
 
 [editable path="TapewormTom"]

@@ -31,7 +31,9 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed('ui_accept'):
-		if is_on_floor() or coyote_jump_timer.time_left > 0.0 and velocity.y >=0:
+		print(coyote_jump_timer.time_left)
+		if is_on_floor() or coyote_jump_timer.time_left > 0.0:
+			print(coyote_jump_timer.time_left)
 			velocity.y = jump_force
 
 	# Get the input direction and handle the movement/deceleration.
@@ -46,7 +48,8 @@ func _physics_process(delta):
 	if not dead:
 		var was_on_floor = is_on_floor()
 		move_and_slide()
-		if was_on_floor and not is_on_floor():
+		var just_left_edge = was_on_floor and not is_on_floor() and velocity.y >= 0
+		if just_left_edge:
 			coyote_jump_timer.start()
 		if is_on_floor() and not was_on_floor:
 			play_footstep()
